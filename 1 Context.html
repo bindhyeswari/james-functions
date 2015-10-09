@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // context in javascript - this keyword
+
+        //'use strict';
+        // todo: Strict mode from MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+        // function
+        function test() {
+            console.log(this); // global object - use strict
+        }
+        test();
+
+        // methods
+        // generally, context of a method is the object that owns it
+        var x = {
+            name: 'James',
+            sayHello: function () {
+                console.log(this);
+            }
+        };
+        x.sayHello();
+
+        // constructors
+        function Car() {
+            this.data = 'new car object';
+            console.log(this);
+        }
+        var y = new Car;
+        console.log(y.data);
+
+        // Constructor steps
+        // 1. Create a new object
+        // 2. Set the prototype attribute of the new object to Constructor.prototype
+        // 3. Invoke the constructor with this set to the new object
+        // 4. return the new object
+
+
+        // Changing Contexts - call apply bind
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

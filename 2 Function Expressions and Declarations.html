@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // Functions have lexical scoping. Meaning variables declared within the function are not accessible outside it.
+
+        test();
+        //x();
+
+        // Function expression (the part that begins with the function keyword till the ending brace)
+        var x = function test() {
+            console.log('Hello from x!');
+        };
+
+        // Function expression: x, function () {}
+        // Function invocation: x()
+        // Function declaration: The statement begins with the function keyword
+
+        function test() {
+            console.log('Hello from test!');
+        }
+
+        function scope() {
+            print();
+            console.log(y);
+            // variable hoisting
+            var y = 10;
+
+            // Function declaration hoisting
+            function print() {
+                console.log('printing ... ');
+            }
+        }
+
+        scope();
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

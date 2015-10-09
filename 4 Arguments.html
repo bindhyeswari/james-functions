@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function test() {
+            console.log(arguments); // special object available to all functions that holds the arguments as a list of parameters
+            // in an array like object
+            // it has a lenght property and you can access elements using a numeric index
+            console.log(Array.isArray(arguments)); // its prototype attribute does not point to Array.prototype
+            // todo: caller and callee properties - on their way to being deprecated
+
+            // change array like objects to arrays
+            var arr = Array.prototype.slice.call(arguments);
+            console.log(Array.isArray(arr));
+            console.log(arr);
+
+            return arr.reduce(function (x, y) {
+                return x + y;
+            }, 0);
+        }
+
+        var sum = test(1,2,3,4,5,6);
+        console.log(sum);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

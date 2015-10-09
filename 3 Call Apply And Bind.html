@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function test() {
+            console.log(this);
+        }
+
+        // call and apply
+        // call(context, param1, param2 ... )
+        // apply(context, [param1, param2 ... ])
+
+        var context = { name: 'James' };
+
+        test(); // global object
+        test.call(context);
+        test.apply(context);
+
+
+        var fn = test.bind(context);
+        fn();
+
+        function sum (x, y, z) {
+            console.log(x + y + z);
+        }
+
+        var sa = sum.bind(null, 10, 20);
+        sa(30);
+
+        sa(40, 50, 60); // 50 and 60 are ignored the bound function can only take in one parameter
+
+        function context_test() {
+            console.log('The context is ', this);
+        }
+        var ca = context_test.bind({ name: 'James' });
+        ca();
+        var cca = ca.bind({ name: 'bp' }); // you cannot change the context of a bound function
+        cca();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
